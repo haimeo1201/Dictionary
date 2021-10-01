@@ -1,0 +1,3 @@
+Hello	Xinchao
+Bye	Tam biet
+Hi	Xin chao
