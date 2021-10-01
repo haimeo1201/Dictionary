@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 
 public class DictionaryCommandline {
+    /**
+     * showAllWords.
+     */
     public void showAllWords(Dictionary dic) {
         ArrayList<Word> list = dic.getList();
         System.out.printf("%-6s |%-20s  |%s \n", "No", "English", "Vietnamese");

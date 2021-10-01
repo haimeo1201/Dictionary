@@ -1,2 +1,4 @@
 hello	xin chao
 blue	xanh
+ring    nhan
+english tieng anh

@@ -1,4 +1,7 @@
 public class DicCommandLine {
+    /**
+     * dictionaryBasic.
+     */
     public void dictionaryBasic(Dictionary dic) {
         DictionaryManagement read = new DictionaryManagement();
         DictionaryCommandline order = new DictionaryCommandline();
@@ -6,6 +9,9 @@ public class DicCommandLine {
         order.showAllWords(dic);
     }
 
+    /**
+     * dictionaryAdvanced.
+     */
     public void dictionaryAdvanced(Dictionary dic) {
         DictionaryManagement read = new DictionaryManagement();
         DictionaryCommandline order = new DictionaryCommandline();

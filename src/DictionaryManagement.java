@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DictionaryManagement extends Dictionary {
+    /**
+     * insertFromCommandline.
+     */
     public void insertFromCommandline() {
         int n;
         System.out.print("number of pairs: ");
@@ -20,10 +23,13 @@ public class DictionaryManagement extends Dictionary {
         }
     }
 
+    /**
+     * insertFromFile.
+     */
     public void insertFromFile(Dictionary dic) {
         ArrayList<Word> list = dic.getList();
         try {
-            File myObj = new File("data\\dictionaries.txt");
+                File myObj = new File("data\\dictionaries.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -38,6 +44,9 @@ public class DictionaryManagement extends Dictionary {
         }
     }
 
+    /**
+     * dictionaryLookup.
+     */
     public void dictionaryLookup(Dictionary dic) {
         ArrayList<Word> list = dic.getList();
         Scanner scanner = new Scanner(System.in);
