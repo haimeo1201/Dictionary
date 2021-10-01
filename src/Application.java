@@ -3,5 +3,8 @@ public class Application {
         Dictionary dic = new Dictionary();
         DicCommandLine basic = new DicCommandLine();
         basic.dictionaryBasic(dic);
+
+        //DictionaryCommandline a = new DictionaryCommandline();
+        //a.insertFromFile();
     }
 }

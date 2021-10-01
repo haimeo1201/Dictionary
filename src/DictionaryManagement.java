@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class DictionaryManagement {
-    public void insertFromCommandline(Dictionary list) {
+public class DictionaryManagement extends Dictionary {
+    public void insertFromCommandline() {
         int n;
         System.out.print("number of pairs: ");
         Scanner scan = new Scanner(System.in);
@@ -14,7 +14,7 @@ public class DictionaryManagement {
             System.out.print("type meaning: ");
             String explain = scan1.nextLine();
             Word a = new Word(target, explain);
-            list.addWord(a);
+            list.add(a);
         }
     }
 }

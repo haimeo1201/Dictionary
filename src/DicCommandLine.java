@@ -1,8 +1,13 @@
 public class DicCommandLine {
     public void dictionaryBasic(Dictionary dic) {
-        DictionaryManagement read = new DictionaryManagement();
+        //DictionaryManagement read = new DictionaryManagement();
         DictionaryCommandline order = new DictionaryCommandline();
-        read.insertFromCommandline(dic);
+        //read.insertFromCommandline(dic);
+        order.insertFromFile();
         order.showAllWords(dic);
+    }
+
+    public void dictionaryAdvanced() {
+
     }
 }
