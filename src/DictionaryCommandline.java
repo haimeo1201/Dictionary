@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class DictionaryCommandline {
     public void showAllWords(Dictionary dic) {
