@@ -49,14 +49,15 @@ public class DictionaryManagement extends Dictionary {
      */
     public void dictionaryLookup(Dictionary dic) {
         ArrayList<Word> list = dic.getList();
-        Scanner scanner = new Scanner(System.in);
         boolean check1 = true;
         while (check1) {
             boolean check2 = false;
             if (check1) System.out.println("moi ban tra tu:");
+            Scanner scanner = new Scanner(System.in);
             String search = scanner.nextLine();
             for (Word word : list) {
-                if (word.getWord_target().contains(search)) {
+                if (search.isBlank()) continue;
+                else if (word.getWord_target().contains(search)) {
                     check2 = true;
                     System.out.println("tu ban tra co nghia: " + word.getWord_explain());
                     break;
