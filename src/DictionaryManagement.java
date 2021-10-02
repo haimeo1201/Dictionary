@@ -55,21 +55,22 @@ public class DictionaryManagement extends Dictionary {
             if (check1) System.out.println("moi ban tra tu:");
             Scanner scanner = new Scanner(System.in);
             String search = scanner.nextLine();
-            for (Word word : list) {
-                if (search.isBlank()) continue;
-                else if (word.getWord_target().contains(search)) {
-                    check2 = true;
-                    System.out.println("tu ban tra co nghia: " + word.getWord_explain());
-                    break;
+            if (!search.isBlank()) {
+                for (Word word : list) {
+                    if (word.getWord_target().contains(search)) {
+                        check2 = true;
+                        System.out.println("tu ban tra co nghia: " + word.getWord_explain());
+                        break;
+                    }
                 }
+                if (!check2) {
+                    System.out.println("khong thay tu ban tim");
+                }
+                System.out.println("Continue Y/N?");
+                Scanner sc = new Scanner(System.in);
+                String y = sc.nextLine();
+                check1 = y.equalsIgnoreCase("y");
             }
-            if (!check2) {
-                System.out.println("khong thay tu ban tim");
-            }
-            System.out.println("Continue Y/N?");
-            Scanner sc = new Scanner(System.in);
-            String y = sc.nextLine();
-            check1 = y.equalsIgnoreCase("y");
         }
         System.out.println("cam on da su dung");
     }
