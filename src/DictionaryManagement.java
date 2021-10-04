@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DictionaryManagement extends Dictionary {
@@ -26,10 +25,10 @@ public class DictionaryManagement extends Dictionary {
     /**
      * insertFromFile.
      */
-    public void insertFromFile(Dictionary dic) {
-        ArrayList<Word> list = dic.getList();
+    public void insertFromFile() {
+        //ArrayList<Word> list = dic.getList();
         try {
-                File myObj = new File("data\\dictionaries.txt");
+            File myObj = new File("data\\dictionaries.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -38,8 +37,7 @@ public class DictionaryManagement extends Dictionary {
                 list.add(temp);
             }
             myReader.close();
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("An error");
         }
     }
@@ -47,13 +45,13 @@ public class DictionaryManagement extends Dictionary {
     /**
      * dictionaryLookup.
      */
-    public void dictionaryLookup(Dictionary dic) {
-        ArrayList<Word> list = dic.getList();
+    public void dictionaryLookup() {
+        //ArrayList<Word> list = dic.getList();
+        Scanner scanner = new Scanner(System.in);
         boolean check1 = true;
         while (check1) {
             boolean check2 = false;
             if (check1) System.out.println("moi ban tra tu:");
-            Scanner scanner = new Scanner(System.in);
             String search = scanner.nextLine();
             if (!search.isBlank()) {
                 for (Word word : list) {
@@ -63,14 +61,17 @@ public class DictionaryManagement extends Dictionary {
                         break;
                     }
                 }
-                if (!check2) {
-                    System.out.println("khong thay tu ban tim");
-                }
-                System.out.println("Continue Y/N?");
-                Scanner sc = new Scanner(System.in);
-                String y = sc.nextLine();
-                check1 = y.equalsIgnoreCase("y");
+            } else {
+                search = scanner.nextLine();
             }
+
+            if (!check2) {
+                System.out.println("khong thay tu ban tim");
+            }
+            System.out.println("Continue Y/N?");
+            Scanner sc = new Scanner(System.in);
+            String y = sc.nextLine();
+            check1 = y.equalsIgnoreCase("y");
         }
         System.out.println("cam on da su dung");
     }

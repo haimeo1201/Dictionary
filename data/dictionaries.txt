@@ -1,4 +1,5 @@
+sleep	ngu
 hello	xin chao
 blue	xanh
-ring    nhan
-english tieng anh
+ring	nhan
+english	tieng anh

@@ -1,12 +1,12 @@
 public class Application {
     public static void main(String[] argc) {
         Dictionary dic = new Dictionary();
-//        DicCommandLine basic = new DicCommandLine();
-//        basic.dictionaryBasic(dic);
-        DicCommandLine advance = new DicCommandLine();
+        DictionaryCommandline basic = new DictionaryCommandline();
+        //basic.dictionaryBasic();
+        DictionaryCommandline advance = new DictionaryCommandline();
         DictionaryManagement read = new DictionaryManagement();
-//        read.insertFromFile(dic);
-        advance.dictionaryAdvanced(dic);
-        read.dictionaryLookup(dic);
+        //read.insertFromFile();
+        advance.dictionaryAdvanced();
+        read.dictionaryLookup();
     }
 }
