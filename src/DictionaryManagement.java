@@ -53,18 +53,16 @@ public class DictionaryManagement extends Dictionary {
             boolean check2 = false;
             if (check1) System.out.println("moi ban tra tu:");
             String search = scanner.nextLine();
-            if (!search.isBlank()) {
-                for (Word word : list) {
-                    if (word.getWord_target().contains(search)) {
-                        check2 = true;
-                        System.out.println("tu ban tra co nghia: " + word.getWord_explain());
-                        break;
-                    }
+            for (Word word : list) {
+                if(search.isBlank()){
+                    search = scanner.nextLine();
                 }
-            } else {
-                search = scanner.nextLine();
+                else if (word.getWord_target().matches(search)) {
+                    check2 = true;
+                    System.out.println("tu ban tra co nghia: " + word.getWord_explain());
+                    break;
+                }
             }
-
             if (!check2) {
                 System.out.println("khong thay tu ban tim");
             }
