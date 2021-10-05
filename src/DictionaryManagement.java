@@ -1,5 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 
 public class DictionaryManagement extends Dictionary {
@@ -52,16 +51,18 @@ public class DictionaryManagement extends Dictionary {
         while (check1) {
             boolean check2 = false;
             if (check1) System.out.println("moi ban tra tu:");
-            String search = scanner.nextLine();
+
+            String search = "";
+            if (scanner.hasNextLine()) {
+                search = scanner.nextLine();
+            }
             for (Word word : list) {
-                if(search.isBlank()){
-                    search = scanner.nextLine();
-                }
-                else if (word.getWord_target().matches(search)) {
+                if (word.getWord_target().matches(search)) {
                     check2 = true;
                     System.out.println("tu ban tra co nghia: " + word.getWord_explain());
                     break;
                 }
+
             }
             if (!check2) {
                 System.out.println("khong thay tu ban tim");
@@ -72,5 +73,79 @@ public class DictionaryManagement extends Dictionary {
             check1 = y.equalsIgnoreCase("y");
         }
         System.out.println("cam on da su dung");
+    }
+
+    /**
+     * addToDictionary (.txt file) by commandline
+     */
+    public void addFromCommandline() throws IOException {
+        String newWordTarget;
+        String newWordExplain;
+        System.out.println("Add to dictionary");
+        System.out.println("Moi nhap tu tieng anh:");
+        Scanner input = new Scanner(System.in);
+        newWordTarget = input.nextLine();
+        System.out.println("Moi nhap giai nghia");
+        newWordExplain = input.nextLine();
+        FileWriter fw = null;
+        fw = new FileWriter("data\\dictionaries.txt", true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        //bw.newLine();
+        bw.write("\n" + newWordTarget + "\t" + newWordExplain);
+        bw.close();
+        System.out.println("them tu thanh cong");
+    }
+
+    /**
+     * removeFromDictionary (file .txt)
+     */
+    public void removeFromCommandline() throws IOException {
+        System.out.println("Nhap tu ban muon xoa");
+        Scanner inp = new Scanner(System.in);
+        String toDelete = inp.nextLine();
+        File file = new File("data\\dictionaries.txt");
+        File temp = File.createTempFile("data\\tempFile", ".txt", file.getParentFile());
+        String charset = "UTF-8";
+        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), charset));
+        PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(temp), charset));
+        for (String line; (line = reader.readLine()) != null; ) {
+            if (!line.contains(toDelete)) {
+                writer.println(line);
+            }
+        }
+        reader.close();
+        writer.close();
+        file.delete();
+        temp.renameTo(file);
+        System.out.println("Xoa tu thanh cong");
+    }
+
+    /**
+     * sua tu (file .txt).
+     */
+    public void replaceFromCommandline() throws IOException {
+        System.out.println("Nhap tu ban muon sua");
+        Scanner input = new Scanner(System.in);
+        String toReplace = input.nextLine();
+        System.out.println("Nhap lai dinh nghia tu:");
+        String replaceWord_explain = input.nextLine();
+        File file = new File("data\\dictionaries.txt");
+        File tempFile = File.createTempFile("data\\tempFile", ".txt", file.getParentFile());
+        String charset = "UTF-8";
+        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), charset));
+        PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(tempFile), charset));
+        for (String line; (line = reader.readLine()) != null; ) {
+            if(line.contains(toReplace)) {
+                String[] tempStringSplits = line.split("\t");
+                tempStringSplits[1] = replaceWord_explain;
+                line = tempStringSplits[0] + "\t" + tempStringSplits[1];
+            }
+            writer.println(line);
+        }
+        reader.close();
+        writer.close();
+        file.delete();
+        tempFile.renameTo(file);
+        System.out.println("Sua tu thanh cong");
     }
 }

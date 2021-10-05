@@ -1,5 +1,4 @@
-sleep	ngu
 hello	xin chao
-blue	xanh
-ring	nhan
-english	tieng anh
+bye	tam biet
+apple	qua tao
+note	ghi chu
