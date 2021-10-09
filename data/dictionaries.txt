@@ -3,7 +3,7 @@ bye	tạm biệt các bạn
 apple	quả táo ngon
 note	ghi chú đẹp
 transport	vận chuyển
-transfer	chuyền
+transfer	truyen
 translate	dịch
 transgender	chuyển giới
 dictionary	từ điển 
@@ -11,3 +11,5 @@ bug	con bọ
 build	xây dựng
 concentration	tập trung
 
+transit	van chuyen 
+uniform	dong phuc

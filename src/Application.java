@@ -10,7 +10,7 @@ public class Application {
         DictionaryCommandline advance = new DictionaryCommandline();
         DictionaryManagement read = new DictionaryManagement();
         //read.insertFromFile();
-        System.out.println("Nhap 'tra' de tim kiem tu");
+        /*System.out.println("Nhap 'tra' de tim kiem tu");
         System.out.println("Nhap 'them' de them vao danh sach tu");
         System.out.println("Nhap 'xoa' de xoa 1 tu trong danh sach tu");
         System.out.println("Nhap 'sua' de sua 1 tu trong danh sach tu");
@@ -30,6 +30,7 @@ public class Application {
         else if (Objects.equals(task, "sua")) {
             advance.dictionaryAdvanced();
             read.replaceFromCommandline();
-        }
+        }*/
+        advance.dictionaryAdvanced();
     }
 }

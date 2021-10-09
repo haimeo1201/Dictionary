@@ -1,5 +1,7 @@
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Scanner;
 
 public class DictionaryCommandline extends Dictionary {
     static DictionaryManagement read = new DictionaryManagement();
@@ -29,10 +31,86 @@ public class DictionaryCommandline extends Dictionary {
     /**
      * dictionaryAdvanced.
      */
-    public void dictionaryAdvanced() {
-        read.insertFromFile();
-        order.sortDictionary();
-        order.showAllWords();
+    public void dictionaryAdvanced() throws IOException {
+        //read.insertFromFile();
+        //order.sortDictionary();
+        //order.showAllWords();
+        String task;
+        do {
+            System.out.println("Nhap 'tra' de tim kiem tu");
+            System.out.println("Nhap 'them' de them vao danh sach tu");
+            System.out.println("Nhap 'xoa' de xoa 1 tu trong danh sach tu");
+            System.out.println("Nhap 'sua' de sua 1 tu trong danh sach tu");
+            //System.out.println("Nhap 'show' de hien thi danh sach tu");
+            System.out.println("Nhap 'quit' de thoat");
+            System.out.println("Nhap yeu cau:");
+            Scanner input = new Scanner(System.in);
+            task = input.nextLine();
+            while (task.isBlank()){
+                task = input.nextLine();
+            }
+            switch (task) {
+                case "tra": {
+                    list.clear();
+                    read.insertFromFile();
+                    order.sortDictionary();
+                    order.showAllWords();
+                    read.dictionaryLookup();
+                    order.dictionarySearcher();
+                    System.out.print("nhan phim bat ky de tiep tuc... ");
+                    input.nextLine();
+                    continue;
+                }
+                case "them": {
+                    //list.clear();
+                    //read.insertFromFile();
+                    //order.sortDictionary();
+                    order.showAllWords();
+                    read.addFromCommandline();
+                    System.out.print("nhan phim bat ky de tiep tuc... ");
+                    input.nextLine();
+                    continue;
+                }
+                case "sua": {
+                    order.showAllWords();
+                    read.replaceFromCommandline();
+                    list.clear();
+                    read.insertFromFile();
+                    System.out.print("nhan phim bat ky de tiep tuc... ");
+                    input.nextLine();
+                    continue;
+                }
+                case "xoa": {
+                    order.showAllWords();
+                    read.removeFromCommandline();
+                    list.clear();
+                    read.insertFromFile();
+                    System.out.print("nhan phim bat ky de tiep tuc... ");
+                    input.nextLine();
+                    continue;
+                }
+                case "quit": {
+                    System.out.print("cam on da su dung");
+                    System.exit(0);
+                    continue;
+                }
+                /*
+                case "show": {
+                    order.sortDictionary();
+                    order.showAllWords();
+                    System.out.print("nhan phim bat ky de tiep tuc... ");
+                    input.nextLine();
+                    continue;
+                }
+                */
+                default: {
+                    System.out.println("yeu cau ban tra khong hop le");
+                    System.out.print("nhan phim bat ky de tiep tuc... ");
+                    input.nextLine();
+                    continue;
+                }
+            }
+        }while (task != "quit");
     }
 
     /**
