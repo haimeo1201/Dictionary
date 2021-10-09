@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class DictionaryManagement extends Dictionary {
+
     /**
      * insertFromCommandline.
      */
@@ -31,6 +32,9 @@ public class DictionaryManagement extends Dictionary {
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
+                if (data.trim().length() == 0) {
+                    continue;  // Skip blank lines
+                }
                 String[] word = data.split("\t");
                 Word temp = new Word(word[0], word[1]);
                 list.add(temp);
@@ -42,37 +46,37 @@ public class DictionaryManagement extends Dictionary {
     }
 
     /**
+     * get tu dang search.
+     */
+    static String search = "";
+    public String getSearch() {
+        return search;
+    }
+
+    public void inputWord() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("moi ban tra tu:");
+        if (scanner.hasNextLine()) {
+            search = scanner.nextLine();
+        }
+    }
+
+    /**
      * dictionaryLookup.
      */
     public void dictionaryLookup() {
-        //ArrayList<Word> list = dic.getList();
-        Scanner scanner = new Scanner(System.in);
-        boolean check1 = true;
-        while (check1) {
-            boolean check2 = false;
-            if (check1) System.out.println("moi ban tra tu:");
-
-            String search = "";
-            if (scanner.hasNextLine()) {
-                search = scanner.nextLine();
+        inputWord();
+        boolean check = false;
+        for (Word word : list) {
+            if (word.getWord_target().matches(search)) {
+                check = true;
+                System.out.println("tu ban tra co nghia: " + word.getWord_explain());
+                break;
             }
-            for (Word word : list) {
-                if (word.getWord_target().matches(search)) {
-                    check2 = true;
-                    System.out.println("tu ban tra co nghia: " + word.getWord_explain());
-                    break;
-                }
-
-            }
-            if (!check2) {
-                System.out.println("khong thay tu ban tim");
-            }
-            System.out.println("Continue Y/N?");
-            Scanner sc = new Scanner(System.in);
-            String y = sc.nextLine();
-            check1 = y.equalsIgnoreCase("y");
         }
-        System.out.println("cam on da su dung");
+        if (!check) {
+            System.out.println("khong thay tu ban tim");
+        }
     }
 
     /**
@@ -90,8 +94,8 @@ public class DictionaryManagement extends Dictionary {
         FileWriter fw = null;
         fw = new FileWriter("data\\dictionaries.txt", true);
         BufferedWriter bw = new BufferedWriter(fw);
-        //bw.newLine();
-        bw.write("\n" + newWordTarget + "\t" + newWordExplain);
+        bw.write(newWordTarget + "\t" + newWordExplain);
+        bw.newLine();
         bw.close();
         System.out.println("them tu thanh cong");
     }
@@ -135,7 +139,7 @@ public class DictionaryManagement extends Dictionary {
         BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), charset));
         PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(tempFile), charset));
         for (String line; (line = reader.readLine()) != null; ) {
-            if(line.contains(toReplace)) {
+            if (line.contains(toReplace)) {
                 String[] tempStringSplits = line.split("\t");
                 tempStringSplits[1] = replaceWord_explain;
                 line = tempStringSplits[0] + "\t" + tempStringSplits[1];

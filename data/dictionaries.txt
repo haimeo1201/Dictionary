@@ -1,4 +1,13 @@
-hello	xin chao
-bye	tam biet
-apple	qua tao
-note	ghi chu
+hello	xin chào
+bye	tạm biệt các bạn
+apple	quả táo ngon
+note	ghi chú đẹp
+transport	vận chuyển
+transfer	chuyền
+translate	dịch
+transgender	chuyển giới
+dictionary	từ điển 
+bug	con bọ
+build	xây dựng
+concentration	tập trung
+

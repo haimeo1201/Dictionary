@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Application {
     public static void main(String[] argc) throws IOException {
         //Dictionary dic = new Dictionary();
-        DictionaryCommandline basic = new DictionaryCommandline();
+        //DictionaryCommandline basic = new DictionaryCommandline();
         //basic.dictionaryBasic();
         DictionaryCommandline advance = new DictionaryCommandline();
         DictionaryManagement read = new DictionaryManagement();
@@ -19,6 +19,7 @@ public class Application {
         if (Objects.equals(task, "tra")) {
             advance.dictionaryAdvanced();
             read.dictionaryLookup();
+            advance.dictionarySearcher();
         } else if (Objects.equals(task, "them")) {
             advance.dictionaryAdvanced();
             read.addFromCommandline();
