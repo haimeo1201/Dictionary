@@ -13,6 +13,7 @@ concentration	tập trung
 
 transit	van chuyen 
 uniform	dong phuc
-xray	x-ray
+xray	x quang
 cats	nhieu con meo
 cat	con meo
+abc	abc

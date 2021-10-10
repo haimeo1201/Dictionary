@@ -121,7 +121,7 @@ public class DictionaryManagement extends Dictionary {
         file.delete();
         temp.renameTo(file);
         if (count2 == count1) {
-            System.out.println("khong co tu ban xoa");
+            System.out.println("Khong tim thay tu ban muon xoa");
         }
         else {
             System.out.println("Xoa tu thanh cong");
