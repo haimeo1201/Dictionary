@@ -2,6 +2,18 @@ import java.io.*;
 import java.util.Scanner;
 
 public class DictionaryManagement extends Dictionary {
+    static String search = "";
+    public String getSearch() {
+        return search;
+    }
+
+    public void inputWord() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("moi ban tra tu:");
+        if (scanner.hasNextLine()) {
+            search = scanner.nextLine();
+        }
+    }
 
     /**
      * insertFromCommandline.
@@ -26,7 +38,6 @@ public class DictionaryManagement extends Dictionary {
      * insertFromFile.
      */
     public void insertFromFile() {
-        //ArrayList<Word> list = dic.getList();
         try {
             File myObj = new File("data\\dictionaries.txt");
             Scanner myReader = new Scanner(myObj);
@@ -42,22 +53,6 @@ public class DictionaryManagement extends Dictionary {
             myReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error");
-        }
-    }
-
-    /**
-     * get tu dang search.
-     */
-    static String search = "";
-    public String getSearch() {
-        return search;
-    }
-
-    public void inputWord() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("moi ban tra tu:");
-        if (scanner.hasNextLine()) {
-            search = scanner.nextLine();
         }
     }
 
@@ -104,6 +99,8 @@ public class DictionaryManagement extends Dictionary {
      * removeFromDictionary (file .txt)
      */
     public void removeFromCommandline() throws IOException {
+        int count1 = 0;
+        int count2 = 0;
         System.out.println("Nhap tu ban muon xoa");
         Scanner inp = new Scanner(System.in);
         String toDelete = inp.nextLine();
@@ -113,21 +110,29 @@ public class DictionaryManagement extends Dictionary {
         BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), charset));
         PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(temp), charset));
         for (String line; (line = reader.readLine()) != null; ) {
+            count1++;
             if (!line.contains(toDelete)) {
                 writer.println(line);
+                count2++;
             }
         }
         reader.close();
         writer.close();
         file.delete();
         temp.renameTo(file);
-        System.out.println("Xoa tu thanh cong");
+        if (count2 == count1) {
+            System.out.println("khong co tu ban xoa");
+        }
+        else {
+            System.out.println("Xoa tu thanh cong");
+        }
     }
 
     /**
      * sua tu (file .txt).
      */
     public void replaceFromCommandline() throws IOException {
+        int count1 = 0;
         System.out.println("Nhap tu ban muon sua");
         Scanner input = new Scanner(System.in);
         String toReplace = input.nextLine();
@@ -143,6 +148,7 @@ public class DictionaryManagement extends Dictionary {
                 String[] tempStringSplits = line.split("\t");
                 tempStringSplits[1] = replaceWord_explain;
                 line = tempStringSplits[0] + "\t" + tempStringSplits[1];
+                count1++;
             }
             writer.println(line);
         }
@@ -150,6 +156,11 @@ public class DictionaryManagement extends Dictionary {
         writer.close();
         file.delete();
         tempFile.renameTo(file);
-        System.out.println("Sua tu thanh cong");
+        if (count1 == 1) {
+            System.out.println("Sua tu thanh cong");
+        }
+        else {
+            System.out.println("Khong thay tu ban can sua");
+        }
     }
 }

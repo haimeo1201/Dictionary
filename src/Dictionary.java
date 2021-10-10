@@ -7,10 +7,6 @@ public class Dictionary {
         return list;
     }
 
-    /*public void addWord(Word a) {
-        list.add(a);
-    }*/
-
     public void setList(ArrayList<Word> list) {
         Dictionary.list = list;
     }

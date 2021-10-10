@@ -10,7 +10,6 @@ public class DictionaryCommandline extends Dictionary {
      * showAllWords.
      */
     public void showAllWords() {
-        //ArrayList<Word> list = dic.getList();
         System.out.printf("%-6s |%-20s  |%s \n", "No", "English", "Vietnamese");
         for (int i = 0; i < list.size(); i++) {
             String S = ".";
@@ -24,7 +23,6 @@ public class DictionaryCommandline extends Dictionary {
     public void dictionaryBasic() {
         DictionaryManagement read = new DictionaryManagement();
         DictionaryCommandline order = new DictionaryCommandline();
-        //read.insertFromCommandline(dic);
         order.showAllWords();
     }
 
@@ -32,16 +30,13 @@ public class DictionaryCommandline extends Dictionary {
      * dictionaryAdvanced.
      */
     public void dictionaryAdvanced() throws IOException {
-        //read.insertFromFile();
-        //order.sortDictionary();
-        //order.showAllWords();
         String task;
         do {
             System.out.println("Nhap 'tra' de tim kiem tu");
             System.out.println("Nhap 'them' de them vao danh sach tu");
             System.out.println("Nhap 'xoa' de xoa 1 tu trong danh sach tu");
             System.out.println("Nhap 'sua' de sua 1 tu trong danh sach tu");
-            //System.out.println("Nhap 'show' de hien thi danh sach tu");
+            System.out.println("Nhap 'show' de hien thi danh sach tu");
             System.out.println("Nhap 'quit' de thoat");
             System.out.println("Nhap yeu cau:");
             Scanner input = new Scanner(System.in);
@@ -57,55 +52,52 @@ public class DictionaryCommandline extends Dictionary {
                     order.showAllWords();
                     read.dictionaryLookup();
                     order.dictionarySearcher();
-                    System.out.print("nhan phim bat ky de tiep tuc... ");
+                    System.out.print("nhan phim enter de tiep tuc... ");
                     input.nextLine();
                     continue;
                 }
                 case "them": {
-                    //list.clear();
-                    //read.insertFromFile();
-                    //order.sortDictionary();
                     order.showAllWords();
                     read.addFromCommandline();
-                    System.out.print("nhan phim bat ky de tiep tuc... ");
+                    System.out.print("nhan phim enter de tiep tuc... ");
                     input.nextLine();
                     continue;
                 }
                 case "sua": {
-                    order.showAllWords();
+//                    order.showAllWords();
                     read.replaceFromCommandline();
                     list.clear();
                     read.insertFromFile();
-                    System.out.print("nhan phim bat ky de tiep tuc... ");
+                    System.out.print("nhan phim enter de tiep tuc... ");
                     input.nextLine();
                     continue;
                 }
                 case "xoa": {
-                    order.showAllWords();
+//                    order.showAllWords();
                     read.removeFromCommandline();
                     list.clear();
                     read.insertFromFile();
-                    System.out.print("nhan phim bat ky de tiep tuc... ");
+                    System.out.print("nhan phim enter de tiep tuc... ");
                     input.nextLine();
                     continue;
                 }
                 case "quit": {
-                    System.out.print("cam on da su dung");
+                    System.out.print("cam on ban da su dung");
                     System.exit(0);
                     continue;
                 }
-                /*
                 case "show": {
+                    list.clear();
+                    read.insertFromFile();
                     order.sortDictionary();
                     order.showAllWords();
-                    System.out.print("nhan phim bat ky de tiep tuc... ");
+                    System.out.print("nhan phim enter de tiep tuc... ");
                     input.nextLine();
                     continue;
                 }
-                */
                 default: {
                     System.out.println("yeu cau ban tra khong hop le");
-                    System.out.print("nhan phim bat ky de tiep tuc... ");
+                    System.out.print("nhan phim enter de tiep tuc... ");
                     input.nextLine();
                     continue;
                 }
@@ -127,10 +119,10 @@ public class DictionaryCommandline extends Dictionary {
 
     public void dictionarySearcher() {
         String searching = read.getSearch();
-        System.out.println("Cac tu tuong tu:");
+        System.out.println("Cac tu ban co the muon tra:");
         boolean check = false;
         for (Word word : list) {
-            if (word.getWord_target().startsWith(searching)) {
+            if (word.getWord_target().startsWith(searching) && !word.getWord_target().equals(searching)) {
                 System.out.println( word.getWord_target());
                 check = true;
             }
