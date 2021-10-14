@@ -21,5 +21,6 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.setTitle("dit");
         primaryStage.show();
+        primaryStage.getIcons().add(new Image("C:\\Users\\Hoang Thang\\Documents\\GitHub\\Dictionary\\data\\download.jpg"));
     }
 }
