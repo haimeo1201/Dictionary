@@ -36,11 +36,11 @@ public class Controll implements Initializable {
     @FXML private Button edit;
     @FXML private Button transOnl;
     @FXML private Button imgLabel;
+    @FXML private Button erase;
+    @FXML private Button commitChange;
     @FXML private TextField input;
     @FXML private TextArea output;
     @FXML private Label nofi;
-    @FXML private Button commitChange;
-
 
     DictionaryManagement dicM = new DictionaryManagement();
     DictionaryCommandline dicC = new DictionaryCommandline();
@@ -64,18 +64,22 @@ public class Controll implements Initializable {
         System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
         voice = VoiceManager.getInstance().getVoice("kevin");
         voice.allocate();
-        Image img = new Image("C:\\Users\\Hoang Thang\\Desktop\\DictionaryHai\\data\\audio_40px.png");
+        Image img = new Image("D:\\DictionaryHai\\data\\audio_40px.png");
         listen.setGraphic(new ImageView(img));
-        Image img1 = new Image("C:\\Users\\Hoang Thang\\Desktop\\DictionaryHai\\data\\search_30px.png");
+        Image img1 = new Image("D:\\DictionaryHai\\data\\search_30px.png");
         search.setGraphic(new ImageView(img1));
-        Image img2 = new Image("C:\\Users\\Hoang Thang\\Desktop\\DictionaryHai\\data\\add_40px.png");
+        Image img2 = new Image("D:\\DictionaryHai\\data\\add_40px.png");
         add.setGraphic(new ImageView(img2));
-        Image img3 = new Image("C:\\Users\\Hoang Thang\\Desktop\\DictionaryHai\\data\\edit_property_40px.png");
+        Image img3 = new Image("D:\\DictionaryHai\\data\\edit_property_40px.png");
         edit.setGraphic(new ImageView(img3));
-        Image img4 = new Image("C:\\Users\\Hoang Thang\\Desktop\\DictionaryHai\\data\\translation_40px.png");
+        Image img4 = new Image("D:\\DictionaryHai\\data\\translation_40px.png");
         transOnl.setGraphic(new ImageView(img4));
-        Image img5 = new Image("C:\\Users\\Hoang Thang\\Desktop\\DictionaryHai\\data\\books_38px.png");
+        Image img5 = new Image("D:\\DictionaryHai\\data\\books_38px.png");
         imgLabel.setGraphic(new ImageView(img5));
+        Image img6 = new Image("D:\\DictionaryHai\\data\\eraser_40px.png");
+        erase.setGraphic(new ImageView(img6));
+        Image img7 = new Image("D:\\DictionaryHai\\data\\save_40px.png");
+        commitChange.setGraphic(new ImageView(img7));
     }
     @FXML
     public void speakup(ActionEvent event){

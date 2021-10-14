@@ -47,7 +47,7 @@
             </ImageView>
          </graphic>
         </Button>
-        <Label fx:id="nofi" alignment="CENTER" layoutX="159.0" layoutY="230.0" prefHeight="44.0" prefWidth="202.0">
+        <Label fx:id="nofi" alignment="CENTER" layoutX="159.0" layoutY="230.0" prefHeight="44.0" prefWidth="232.0">
             <font>
                 <Font size="15.0" />
             </font>

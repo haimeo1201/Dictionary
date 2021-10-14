@@ -1,6 +1,6 @@
 hello	xin chào
 bye	tạm biệt các bạn
-apple	quả táo khong ngon
+apple	quả táo hơi ngon
 note	ghi chú đẹp
 transport	vận chuyển
 transfer	truyen
@@ -19,3 +19,6 @@ cat	con meo
 fuck	ád
 application	ung dung
 thanks	cam on
+	
+abc	abc
+bro	bro

@@ -52,9 +52,9 @@ public class ApiSearch implements Initializable {
         System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
         voice = VoiceManager.getInstance().getVoice("kevin");
         voice.allocate();
-        Image img1 = new Image("C:\\Users\\Hoang Thang\\Desktop\\DictionaryHai\\data\\glass.jpg");
+        Image img1 = new Image("D:\\DictionaryHai\\data\\search_30px.png");
         Search.setGraphic(new ImageView(img1));
-        Image img = new Image("C:\\Users\\Hoang Thang\\Desktop\\DictionaryHai\\data\\audio_40px.png");
+        Image img = new Image("D:\\DictionaryHai\\data\\audio_40px.png");
         listen.setGraphic(new ImageView(img));
     }
     @FXML

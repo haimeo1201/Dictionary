@@ -44,14 +44,19 @@ public class PanesControll implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("App.fxml"));
             root = loader.load();
             Controll controll = loader.getController();
-            if (controll.trie.meaning(userNewWord)==null) {
+            if (userDefinition.isBlank() || userNewWord.isBlank()) {
+                nofi.setText("You haven't filled it out yet!");
+            }
+            else if (controll.trie.meaning(userNewWord)==null) {
                 controll.dicM.addFromCommandline(new Word(userNewWord,userDefinition));
                 nofi.setText("Done!");
+                textTarget.clear();
+                textExplain.clear();
             }
             else {
                 textTarget.clear();
                 textExplain.clear();
-                nofi.setText("This word is already existed fucker!");
+                nofi.setText("This word is already existed!");
             }
         }
         catch (Exception e) {
@@ -61,7 +66,7 @@ public class PanesControll implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Image img = new Image("C:\\Users\\Hoang Thang\\Desktop\\DictionaryHai\\data\\save_40px.png");
+        Image img = new Image("D:\\DictionaryHai\\data\\save_40px.png");
         save.setGraphic(new ImageView(img));
     }
 }

@@ -24,6 +24,6 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Dictionary");
         primaryStage.show();
-        primaryStage.getIcons().add(new Image("C:\\Users\\Hoang Thang\\Desktop\\DictionaryHai\\data\\download.jpg"));
+        primaryStage.getIcons().add(new Image("D:\\DictionaryHai\\data\\download.jpg"));
     }
 }
