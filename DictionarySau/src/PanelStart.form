@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="PanelStart">
+  <grid id="27dc6" binding="panelStart" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="154" y="47" width="336" height="352"/>
+    </constraints>
+    <properties>
+      <background color="-16729345"/>
+    </properties>
+    <border type="etched"/>
+    <children>
+      <component id="aed58" class="javax.swing.JLabel" binding="Intro">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Arial Black" size="48"/>
+          <text value="Dictionary"/>
+          <verticalAlignment value="0"/>
+        </properties>
+      </component>
+      <component id="e8ece" class="javax.swing.JButton" binding="manageTheDictionaryButton" default-binding="true">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Manage the Dictionary"/>
+        </properties>
+      </component>
+      <component id="7f3af" class="javax.swing.JButton" binding="translateEnglishToVietnameseButton" default-binding="true">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Translate English to Vietnamese"/>
+        </properties>
+      </component>
+      <component id="505fa" class="javax.swing.JButton" binding="showAllWordButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Show all word"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
