@@ -1,6 +1,6 @@
 hello	xin chào
 bye	tạm biệt các bạn
-apple	quả táo ngon
+apple	quả táo khong ngon
 note	ghi chú đẹp
 transport	vận chuyển
 transfer	truyen
@@ -16,4 +16,6 @@ uniform	dong phuc
 xray	x quang
 cats	nhieu con meo
 cat	con meo
-abc	abc
+fuck	ád
+application	ung dung
+thanks	cam on

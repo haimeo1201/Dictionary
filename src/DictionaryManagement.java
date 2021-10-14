@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class DictionaryManagement extends Dictionary {
@@ -13,6 +15,21 @@ public class DictionaryManagement extends Dictionary {
         if (scanner.hasNextLine()) {
             search = scanner.nextLine();
         }
+    }
+    public void showAllWords() {
+        System.out.printf("%-6s |%-20s  |%s \n", "No", "English", "Vietnamese");
+        for (int i = 0; i < list.size(); i++) {
+            String S = ".";
+            System.out.printf("%d%-5s |%-25s |%s%n", i + 1, S, list.get(i).getWord_target(), list.get(i).getWord_explain());
+        }
+    }
+    public void sortDictionary() {
+        Collections.sort(list, new Comparator<Word>() {
+            @Override
+            public int compare(Word o1, Word o2) {
+                return o1.getWord_target().compareTo(o2.getWord_target());
+            }
+        });
     }
 
     /**
@@ -38,6 +55,7 @@ public class DictionaryManagement extends Dictionary {
      * insertFromFile.
      */
     public void insertFromFile() {
+        list.clear();
         try {
             File myObj = new File("data\\dictionaries.txt");
             Scanner myReader = new Scanner(myObj);
@@ -77,15 +95,9 @@ public class DictionaryManagement extends Dictionary {
     /**
      * addToDictionary (.txt file) by commandline
      */
-    public void addFromCommandline() throws IOException {
-        String newWordTarget;
-        String newWordExplain;
-        System.out.println("Add to dictionary");
-        System.out.println("Moi nhap tu tieng anh:");
-        Scanner input = new Scanner(System.in);
-        newWordTarget = input.nextLine();
-        System.out.println("Moi nhap giai nghia");
-        newWordExplain = input.nextLine();
+    public void addFromCommandline(Word word) throws IOException {
+        String newWordTarget = word.getWord_target();
+        String newWordExplain = word.getWord_explain();
         FileWriter fw = null;
         fw = new FileWriter("data\\dictionaries.txt", true);
         BufferedWriter bw = new BufferedWriter(fw);
@@ -98,12 +110,9 @@ public class DictionaryManagement extends Dictionary {
     /**
      * removeFromDictionary (file .txt)
      */
-    public void removeFromCommandline() throws IOException {
+    public void removeFromCommandline(String toDelete) throws IOException {
         int count1 = 0;
         int count2 = 0;
-        System.out.println("Nhap tu ban muon xoa");
-        Scanner inp = new Scanner(System.in);
-        String toDelete = inp.nextLine();
         File file = new File("data\\dictionaries.txt");
         File temp = File.createTempFile("data\\tempFile", ".txt", file.getParentFile());
         String charset = "UTF-8";
@@ -131,13 +140,10 @@ public class DictionaryManagement extends Dictionary {
     /**
      * sua tu (file .txt).
      */
-    public void replaceFromCommandline() throws IOException {
+    public void replaceFromCommandline(Word word) throws IOException {
         int count1 = 0;
-        System.out.println("Nhap tu ban muon sua");
-        Scanner input = new Scanner(System.in);
-        String toReplace = input.nextLine();
-        System.out.println("Nhap lai dinh nghia tu:");
-        String replaceWord_explain = input.nextLine();
+        String toReplace = word.getWord_target();
+        String replaceWord_explain = word.getWord_explain();
         File file = new File("data\\dictionaries.txt");
         File tempFile = File.createTempFile("data\\tempFile", ".txt", file.getParentFile());
         String charset = "UTF-8";

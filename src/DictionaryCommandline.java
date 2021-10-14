@@ -51,21 +51,21 @@ public class DictionaryCommandline extends Dictionary {
                     order.sortDictionary();
                     order.showAllWords();
                     read.dictionaryLookup();
-                    order.dictionarySearcher();
+                 //   order.dictionarySearcher();
                     System.out.print("nhan phim enter de tiep tuc... ");
                     input.nextLine();
                     continue;
                 }
                 case "them": {
                     order.showAllWords();
-                    read.addFromCommandline();
+                    //read.addFromCommandline();
                     System.out.print("nhan phim enter de tiep tuc... ");
                     input.nextLine();
                     continue;
                 }
                 case "sua": {
 //                    order.showAllWords();
-                    read.replaceFromCommandline();
+                    //read.replaceFromCommandline();
                     list.clear();
                     read.insertFromFile();
                     System.out.print("nhan phim enter de tiep tuc... ");
@@ -74,7 +74,7 @@ public class DictionaryCommandline extends Dictionary {
                 }
                 case "xoa": {
 //                    order.showAllWords();
-                    read.removeFromCommandline();
+                   // read.removeFromCommandline();
                     list.clear();
                     read.insertFromFile();
                     System.out.print("nhan phim enter de tiep tuc... ");
@@ -117,9 +117,7 @@ public class DictionaryCommandline extends Dictionary {
         });
     }
 
-    public void dictionarySearcher() {
-        String searching = read.getSearch();
-        System.out.println("Cac tu ban co the muon tra:");
+    public boolean dictionarySearcher(String searching) {
         boolean check = false;
         for (Word word : list) {
             if (word.getWord_target().startsWith(searching) && !word.getWord_target().equals(searching)) {
@@ -130,5 +128,6 @@ public class DictionaryCommandline extends Dictionary {
         if (!check) {
             System.out.println("khong co tu nao tuong tu");
         }
+        return check;
     }
 }

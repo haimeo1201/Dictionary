@@ -1,0 +1,16 @@
+.button {
+    -fx-background-color: none;
+    -fx-background-radius: 0;
+}
+
+.buttonsave {
+    -fx-background-color: #a768f3;
+}
+
+.root {
+    -fx-background: #534993;
+}
+
+.label {
+
+}

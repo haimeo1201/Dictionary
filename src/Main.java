@@ -18,9 +18,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("App.fxml"));
-        primaryStage.setScene(new Scene(root));
-        primaryStage.setTitle("dit");
+        Scene scene = new Scene(root);
+        String css = this.getClass().getResource("styling.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Dictionary");
         primaryStage.show();
-        primaryStage.getIcons().add(new Image("C:\\Users\\Hoang Thang\\Documents\\GitHub\\Dictionary\\data\\download.jpg"));
+        primaryStage.getIcons().add(new Image("C:\\Users\\Hoang Thang\\Desktop\\DictionaryHai\\data\\download.jpg"));
     }
 }
