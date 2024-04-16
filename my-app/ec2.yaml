@@ -1,0 +1,13 @@
+#ec2 crossplane with ubuntu 20.04, script to install nfs server, open port 2049
+apiVersion: ec2.aws.crossplane.io/v1beta1
+kind: Instances
+metadata:
+  name: nfs-server
+spec:
+  forProvider:
+    instanceType: t2.micro
+    ami: ami-0c55b159cbfafe1f0
+    keyName: rsa
+    region: ap-southeast-1
+  providerConfigRef:
+    name: default
