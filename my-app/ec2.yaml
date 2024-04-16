@@ -1,6 +1,6 @@
 #ec2 crossplane with ubuntu 20.04, script to install nfs server, open port 2049
 apiVersion: ec2.aws.upbound.io/v1beta1
-kind: Instances
+kind: Instance
 metadata:
   name: nfs-server
 spec:
